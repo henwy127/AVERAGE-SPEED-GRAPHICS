@@ -40,7 +40,7 @@ Além disso, o **gráfico** gerado também se adapta automaticamente ao número 
 ## PRÉ-PROJETO ORIGINAL
 
 [![Visualização do PDF](pagina1.png)](Trabalho_de_Fisica.pdf)  
-![Pagina 2](pagina2.png)
-![Pagina 3](pagina3.png)
+[![Visualização do PDF](pagina2.png)](Trabalho_de_Fisica.pdf)  
+[![Visualização do PDF](pagina3.png)](Trabalho_de_Fisica.pdf)  
 
 ---
