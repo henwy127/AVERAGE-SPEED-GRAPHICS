@@ -12,14 +12,21 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
 public class Janela {
+    // Listas públicas para armazenar os campos de texto das velocidades da ida e volta
     public ArrayList<JTextField> camposIda = new ArrayList<>();
     public ArrayList<JTextField> camposVolta = new ArrayList<>();
+
+    // Variáveis para gráfico e interface do gráfico da ida e labels de resultado
     private ChartPanel chartPanelIda = null;
     private JPanel painelGraficoIda = null;
     private JLabel labelResultado;
     private ArrayList<Double> ultimosValoresIdaValidos = new ArrayList<>();
     private JLabel labelGraficoIda;
 
+    /**
+     * Retorna a representação ordinal do número (ex: 1 = Primeira, 2 = Segunda, etc.).
+     * Usada para deixar os labels dos trechos mais claros.
+     */
     private String getOrdinal(int numero) {
         String[] ordinais = {
                 "Primeira", "Segunda", "Terceira", "Quarta", "Quinta",
@@ -31,11 +38,17 @@ public class Janela {
         return numero + "ª";
     }
 
+    /**
+     * Atualiza o gráfico da viagem de ida conforme o usuário digita nos campos.
+     * Só desenha o gráfico se todos os valores estão preenchidos e são válidos.
+     * Mostra os valores das velocidades em cada trecho definido.
+     */
     private void atualizarGraficoIda() {
         ArrayList<String> valoresIda = getValoresIda();
         ArrayList<Double> valoresValidos = new ArrayList<>();
         boolean todosValidos = true;
 
+        // Validação das entradas da ida
         for (int i = 0; i < valoresIda.size(); i++) {
             String txt = valoresIda.get(i).trim();
             try {
@@ -52,6 +65,7 @@ public class Janela {
             }
         }
 
+        // Só atualiza se todos são válidos
         if (todosValidos) {
             ultimosValoresIdaValidos = new ArrayList<>(valoresValidos);
         } else {
@@ -74,19 +88,30 @@ public class Janela {
         painelGraficoIda.repaint();
     }
 
+    /**
+     * Método getter para retornar os textos nos campos de ida.
+     */
     public ArrayList<String> getValoresIda() {
         ArrayList<String> valores = new ArrayList<>();
         for (JTextField tf : camposIda) valores.add(tf.getText());
         return valores;
     }
 
+    /**
+     * Método getter para retornar os textos nos campos de volta.
+     */
     public ArrayList<String> getValoresVolta() {
         ArrayList<String> valores = new ArrayList<>();
         for (JTextField tf : camposVolta) valores.add(tf.getText());
         return valores;
     }
 
+    /**
+     * Método principal que constrói e exibe toda a interface gráfica.
+     * Cria todos os botões, campos, labels e faz toda a lógica gráfica dinâmica.
+     */
     public void AbrirJanela() {
+        // Criação da janela e componentes principais
         JFrame frame = new JFrame("Simulador de Velocidade Escalar Média");
         JLabel texto = new JLabel("Viagem de Ida:");
         JLabel texto3 = new JLabel("Viagem de Volta:");
@@ -132,12 +157,15 @@ public class Janela {
         int larguraBotao = 160;
         int alturaBotao = 40;
 
+        // Listas locais para labels dinâmicas de ida e volta
         ArrayList<JLabel> labelsIda = new ArrayList<>();
         ArrayList<JLabel> labelsVolta = new ArrayList<>();
 
+        // Botões principais
         JButton botao = new JButton("Reset");
         JButton botaoCalcular = new JButton("Calcular");
 
+        // Painel para mostrar o resultado dos cálculos
         JPanel painelResultado = new JPanel();
         painelResultado.setLayout(null);
         painelResultado.setOpaque(false);
@@ -147,6 +175,7 @@ public class Janela {
         labelResultado.setVerticalAlignment(SwingConstants.TOP);
         painelResultado.add(labelResultado);
 
+        // Botão CALCULAR: valida, chama o método/calculo e mostra resultado
         botaoCalcular.addActionListener(e -> {
             try {
                 ArrayList<String> ida = getValoresIda();
@@ -213,6 +242,7 @@ public class Janela {
                     }
                 }
 
+                // Se tudo válido, realiza o cálculo usando classe Funcionamento (sua lógica)
                 String res = Funcionamento.resultado(ida, volta);
                 labelResultado.setText(res);
             } catch (Exception ex) {
@@ -220,11 +250,16 @@ public class Janela {
             }
         });
 
+        // Botão RESET: apenas limpa todos os campos da ida e volta
         botao.addActionListener(e -> {
             for (JTextField tf : camposIda) tf.setText("");
             for (JTextField tf : camposVolta) tf.setText("");
         });
 
+        /**
+         * Função dinâmica: sempre que a quantidade de partes mudar, remove (do frame) e recria todos os campos.
+         * Também adiciona DocumentListener nos campos para atualizar o gráfico ao digitar.
+         */
         Runnable atualizarCampos = () -> {
             for (JTextField tf : camposIda) frame.remove(tf);
             for (JTextField tf : camposVolta) frame.remove(tf);
@@ -257,6 +292,7 @@ public class Janela {
                 camposIda.add(tfIda);
                 frame.add(tfIda);
 
+                // Atualiza gráfico ao digitar na ida
                 tfIda.getDocument().addDocumentListener(new DocumentListener() {
                     public void changedUpdate(DocumentEvent e) { atualizarGraficoIda(); }
                     public void removeUpdate(DocumentEvent e) { atualizarGraficoIda(); }
@@ -274,6 +310,7 @@ public class Janela {
                 camposVolta.add(tfVolta);
                 frame.add(tfVolta);
 
+                // Atualiza gráfico ao digitar na volta (se desejar futuramente, igual ao da ida)
                 tfVolta.getDocument().addDocumentListener(new DocumentListener() {
                     public void changedUpdate(DocumentEvent e) { atualizarGraficoIda(); }
                     public void removeUpdate(DocumentEvent e) { atualizarGraficoIda(); }
@@ -316,6 +353,7 @@ public class Janela {
             frame.repaint();
         };
 
+        // Quando o usuário muda o número de partes, recria campos e redesenha interface
         CaixadeOpcoes.addActionListener(e -> atualizarCampos.run());
 
         frame.setSize(1350, 520);
