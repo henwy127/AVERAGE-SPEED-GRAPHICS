@@ -1,29 +1,46 @@
 
 # AVERAGE-SPEED-GRAPHICS
-Um programa feito para resolver o problema de alguém que pretende fazer uma viagem, e na rota de ida pretende usar velocidades diferentes por tempos iguais e na rota de volta pretende viajar metade da distância em uma velocidade e a outra metade em outra
 
-# PROBLEMA ORIGINAL
-![PROBLMA ORIGINAL](problema.png)
+Um programa feito para resolver o problema de alguém que pretende realizar uma viagem, utilizando diferentes velocidades em cada parte do trajeto.  
+Na rota de ida, o usuário pode dividir a viagem em partes e informar velocidades diferentes (por tempos iguais); na volta, cada parte corresponde a uma fração igual da distância, e o usuário informa a velocidade em cada parte.
 
-# ALTERAÇÕES
-O programa em cima tem como premissa replicar esse problema computacionalmente e desenvolve-lo para maiores complexidades, alterando sua estrutura para que assim, o usuário possa alterar em quantas partes ele vai dividir essa viagem de 2 partes, assim como no problema original até 10 partes
+---
 
-Assim também alterando a estrutura de gráfico o qual se adequa a quantas partes a viagem será divida
- 
-# APARÊNCIA DO PROGRAMA
-![PROBLMA ORIGINAL](aparencia.png)
+## PROBLEMA ORIGINAL
 
-# FUNÇÕES PRESENTES
-Botão de reset e de calcular
+![PROBLEMA ORIGINAL](problema.png)
 
-✅ Verificação de valores invalido (Valores negativos ou Valores < 0 || Valores > 310 ou letras e simbolo do alfabeto)
+---
 
-✅ Mensagem de erro ao digitar os valores inválidos citados anteriormente
+## ALTERAÇÕES E COMPLEXIDADE
 
-✅ Representação gráfica da viagem de ida
+O programa tem como premissa **replicar esse problema computacionalmente** e foi desenvolvido para permitir que o usuário escolha **em quantas partes** (de 2 até 10) a viagem será dividida, em vez das 2 partes do problema original.
 
-✅ A Representação Gráfica não existe a não ser que valores válidos sejam digitados
+Além disso, o **gráfico** gerado também se adapta automaticamente ao número de partes escolhidas para a viagem.
 
-# PRE PROJETO ORIGINAL 
-[![Visualização do PDF](caminho/para/imagem.png)](Trabalho_de_Fisica.pdf)
+---
 
+## APARÊNCIA DO PROGRAMA
+
+![APARÊNCIA DO PROGRAMA](aparencia.png)
+
+---
+
+## FUNÇÕES PRESENTES
+
+- Botão de **Reset** e **Calcular**
+- ✅ **Verificação de valores inválidos**  
+   (Valores negativos ou valores fora do intervalo 0 < v ≤ 310, além de impedir letras e símbolos inválidos)
+- ✅ **Mensagem de erro ao digitar valores inválidos**
+- ✅ **Representação gráfica** da viagem de ida (apenas se todos os valores digitados são válidos)
+- ✅ **A representação gráfica só aparece com dados válidos**
+
+---
+
+## PRÉ-PROJETO ORIGINAL
+
+[![Visualização do PDF](pagina1.png)](Trabalho_de_Fisica.pdf)  
+![Pagina 2](pagina2.png)
+![Pagina 3](pagina3.png)
+
+---
