@@ -16,11 +16,11 @@ Assim também alterando a estrutura de gráfico o qual se adequa a quantas parte
 # FUNÇÕES PRESENTES
 Botão de reset e de calcular
 
-Verificação de valores invalido (Valores negativos ou Valores < 0 || Valores > 310 ou letras e simbolo do alfabeto)
+✅ Verificação de valores invalido (Valores negativos ou Valores < 0 || Valores > 310 ou letras e simbolo do alfabeto)
 
-Mensagem de erro ao digitar os valores inválidos citados anteriormente
+✅ Mensagem de erro ao digitar os valores inválidos citados anteriormente
 
-Representação gráfica da viagem de ida
+✅ Representação gráfica da viagem de ida
 
-A Representação Gráfica não existe a não ser que valores válidos sejam digitados
+✅ A Representação Gráfica não existe a não ser que valores válidos sejam digitados
 
