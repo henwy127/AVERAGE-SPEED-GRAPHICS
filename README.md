@@ -25,5 +25,5 @@ Botão de reset e de calcular
 ✅ A Representação Gráfica não existe a não ser que valores válidos sejam digitados
 
 # PRE PROJETO ORIGINAL 
-[![Visualização do PDF](caminho/para/imagem.png)](Trabalho_de_Fisica.pdf)
+[![Visualização do PDF](caminho/para/imagem.png)](Trabalho de Fisica.pdf)
 
