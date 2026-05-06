@@ -1,6 +1,6 @@
-<<<<<<< HEAD
+
 # AVERAGE-SPEED-GRAPHICS
-=======
+
 # AVERAGE-SPEED-GRAPHICS
 Um programa feito para resolver o problema de alguém que pretende fazer uma viagem, e na rota de ida pretende usar velocidades diferentes por tempos iguais e na rota de volta pretende viajar metade da distância em uma velocidade e a outra metade em outra
 
@@ -21,4 +21,4 @@ Verificação de valores invalido (Valores negativos ou Valores < 0 || Valores >
 Mensagem de erro ao digitar os valores inválidos citados anteriormente
 Representação gráfica da viagem de ida
 A Representação Gráfica não existe a não ser que valores válidos sejam digitados
->>>>>>> 13f34d0bd6688068088c513b1c0b07229e26859a
+
